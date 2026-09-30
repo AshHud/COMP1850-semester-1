@@ -13,7 +13,7 @@ try:
 # Validate that they have entered an integer.
 except:
     print("Invalid amount")
-    
+    exit()
 
 
 # Calculate the total amount of money they will have saved by the end of the year (amount per month multiplied by 12).
@@ -23,5 +23,6 @@ print(f"You have saved: {amount}")
 
 # Calculate the total amount of money including interest (0.8% of the final annual amount) they will have saved in a year.
 interest = amount * 0.008
+amount = amount + interest
 # print this out in the format £X.XX (to two decimal places).
-print(f"You have saved {interest:.2f} in interest")
+print(f"You have saved {amount:.2f} in total")
