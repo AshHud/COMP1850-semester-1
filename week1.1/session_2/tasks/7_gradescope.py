@@ -3,14 +3,19 @@
 # You are going to write a very simple program:
 
 # Ask a user to enter two numbers (one per input)
-
+try:
+    num1 = int(input("enter number 1: "))
+    num2 = int(input("enter number 2: "))  
 # multiply those numbers together
-
+    answer = num1 * num2
 # print out the result
-
+    print(f"the result of {num1} multiplied by {num2} is {answer}")
 # There is an extra point available for validating that they entered numbers!
 # Add to your code so that if they entered something other than an integer it prints
 # 'That is not a number' and exits.
+except:
+    print("That is not a number")
+    exit()
 
 # Download your file, and upload it to the 'Week 1 Session 2 - Practice Upload' task on Minerva.
 # You will get some feedback - ensure you are passing the tests!
