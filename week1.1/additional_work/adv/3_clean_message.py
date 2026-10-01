@@ -6,6 +6,15 @@
 """
 
 raw_message = input("Type a message to tidy: ")
+rawlength = len(raw_message)
+
+changed_message = raw_message.strip()
+changed_message = changed_message.lower()
+changed_message = changed_message.capitalize()
+changedlength = len(changed_message)
+
+print(f"The original message was: {raw_message}, which was {rawlength} characters long")
+print(f"The new message is: {changed_message}, which was {changedlength} characters long")
 
 # TODO: apply a sequence of string methods to produce a cleaned_message
 # Example methods: strip, title, replace, lower, upper
