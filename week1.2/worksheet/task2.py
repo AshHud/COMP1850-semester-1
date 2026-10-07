@@ -26,7 +26,7 @@ try:
     print(f"Minimum = {minimum_value}")
     print(f"Maximum = {maximum_value}")
     print(f"Mean = {mean_value:.1f}")
-    print(f"Median = {median_value:.1f}")
+    print(f"Median = {median_value}")
 
 except:
     sys.exit("Error: no numbers provided")
