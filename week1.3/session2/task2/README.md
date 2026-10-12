@@ -4,4 +4,4 @@ There are 3 tasks in this activity:
 2. Filtering log data - filter and present specific data from a file
 3. sales data statistics - calculate specific statistics on sales data  
 
-Navigate to invidual directory to proceed.
+Navigate to individual directory to proceed.
