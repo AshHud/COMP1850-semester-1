@@ -4,7 +4,7 @@
 
 2. Run the program and inspect its output.
 
-3. We want to store all characters from `course` on a list. Modify the code to achieve this and print the final list at the end of the program.
+3. We want to store  Modify the code all characters from `course` on a list.to achieve this and print the final list at the end of the program.
 
     Run the program to check that it behaves correctly.
 
