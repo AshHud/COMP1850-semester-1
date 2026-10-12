@@ -14,4 +14,6 @@ for i in values:
 print(newval)
 
 # write the list comprehension equivalent to the `for` loop
+newnewval = [item * 2 if item % 2 == 0 else item for item in values]
 
+print(newnewval)
