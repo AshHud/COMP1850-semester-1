@@ -6,7 +6,8 @@ fruit = ['apple','pear','banana','orange']
 while fruit:
 	print(fruit.pop())
 
+# 1st iteration: ['apple','pear','banana','orange']
+# 4th iteration: ['orange']
+# right after the loop finishes []
 
-# Why does this work?
-
-# What features of Python does it rely on?
+# doesnt run forever because it loops until fruit is empty
