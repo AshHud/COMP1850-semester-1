@@ -9,25 +9,42 @@ states = { "red":4, "red_amber":3, "green":5, "amber":3 }
 systime = 0
 times_looped = 0
 loop_time = 0
+previous = 0
 maxtime = int(input("enter maximum time: "))  # read an integer number of steps (>0)
 state = ""
 value_list = list(states.values())
 key_list = list(states.keys())
+
+next = value_list[0] - 1
+
 for i in range(0, len(value_list)):
     loop_time = loop_time + value_list[i]
 
 for i in range(0, maxtime + 1):
+
+    previous = 0
+    next = value_list[0] - 1
+    
     if systime >= loop_time:
         systime = 0
         times_looped = times_looped + 1
 
-    if systime >= 0 and systime <= states.get(key_list[0]) - 1:
+    if systime >= previous and systime <= next:
         state = key_list[0]
-    elif systime >= states.get(key_list[0]) - 1 and systime <= (states.get(key_list[1]) + (states.get(key_list[0]))) - 1:
+    previous = next
+    next = next + value_list[1]
+
+    if systime >= previous and systime <= next :
         state = key_list[1]
-    elif systime >= (states.get(key_list[1]) + (states.get(key_list[0]))) - 1 and (systime <= states.get(key_list[2]) + ((states.get(key_list[1]) + (states.get(key_list[0]))))) - 1:
+    previous = next
+    next = next + value_list[2]
+
+    if systime >= previous and systime <= next:
         state = key_list[2]
-    elif systime >= (systime <= states.get(key_list[2]) + ((states.get(key_list[1]) + (states.get(key_list[0]))))) - 1 and (systime <= states.get(key_list[3]) + ((systime <= states.get(key_list[2]) + ((states.get(key_list[1]) + (states.get(key_list[0]))))))) - 1:
+    previous = next
+    next = next + value_list[3]
+
+    if systime >= previous and systime <= next:
         state = key_list[3]
 
     total_time = systime + (times_looped * loop_time)
