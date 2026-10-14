@@ -8,24 +8,29 @@ states = { "red":4, "red_amber":3, "green":5, "amber":3 }
 
 systime = 0
 times_looped = 0
+loop_time = 0
 maxtime = int(input("enter maximum time: "))  # read an integer number of steps (>0)
 state = ""
+value_list = list(states.values())
+key_list = list(states.keys())
+for i in range(0, len(value_list)):
+    loop_time = loop_time + value_list[i]
 
 for i in range(0, maxtime + 1):
-    if systime >= 15:
+    if systime >= loop_time:
         systime = 0
         times_looped = times_looped + 1
 
-    if systime >= 0 and systime <= 3:
-        state = "red"
-    elif systime >= 4 and systime <= 6:
-        state = "red_amber"
-    elif systime >= 7 and systime <= 11:
-        state = "green"
-    elif systime >= 12 and systime <= 14:
-        state = "amber"
+    if systime >= 0 and systime <= states.get(key_list[0]) - 1:
+        state = key_list[0]
+    elif systime >= states.get(key_list[0]) - 1 and systime <= (states.get(key_list[1]) + (states.get(key_list[0]))) - 1:
+        state = key_list[1]
+    elif systime >= (states.get(key_list[1]) + (states.get(key_list[0]))) - 1 and (systime <= states.get(key_list[2]) + ((states.get(key_list[1]) + (states.get(key_list[0]))))) - 1:
+        state = key_list[2]
+    elif systime >= (systime <= states.get(key_list[2]) + ((states.get(key_list[1]) + (states.get(key_list[0]))))) - 1 and (systime <= states.get(key_list[3]) + ((systime <= states.get(key_list[2]) + ((states.get(key_list[1]) + (states.get(key_list[0]))))))) - 1:
+        state = key_list[3]
 
-    total_time = systime + (times_looped * 15)
+    total_time = systime + (times_looped * loop_time)
 
     print(f"Time {total_time:03} State {state}")
 
