@@ -18,9 +18,13 @@ def currency_converter(amount, from_currency, to_currency):
         'INR': {'PHP': 0.69, 'CNY': 0.09, 'GBP': 0.01}
     }
 
-    conversion_dict = conversion_rate.get(from_currency)
-    conversion_ratio = conversion_dict.get(to_currency)
-    converted_value = amount * conversion_ratio
+    if amount < 0:
+        converted_value = 0.0
+    else:
+        conversion_dict = conversion_rate.get(from_currency)
+        conversion_ratio = conversion_dict.get(to_currency)
+        converted_value = amount * conversion_ratio
+    
     return converted_value
 
 # Submit only this file currency_converter.py with the completed function.
