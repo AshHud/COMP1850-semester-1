@@ -12,7 +12,7 @@
 # print the temperature in Fahrenheit if the temperature from the user
 # is within the range, otherwise print "The temperature is out of range."
 
-
+validity = False
 
 def valid_temperature(temperature):
     if temperature >= -100 and temperature <= 100:
@@ -31,3 +31,11 @@ def celsius_to_fahrenheit(celsius):
 celsius = float(input("Enter temperature in Celsius: "))
 
 # Complete the rest of the code here
+
+validity = valid_temperature(celsius)
+
+if validity == True:
+    result = celsius_to_fahrenheit(celsius)
+    print(f"The temperature in Fahrenheit is: {result}")
+else:
+    print("The temperature is out of range")

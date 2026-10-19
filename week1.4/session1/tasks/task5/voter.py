@@ -18,4 +18,4 @@ def check_vote_eligibility(age):
 age = int(input("Enter your age: "))
 check_vote_eligibility(age)
 
-# what is the return value from check_vote_eligibility?
+# what is the return value from check_vote_eligibility? If you can vote or not depending on your age
