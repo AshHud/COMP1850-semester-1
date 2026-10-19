@@ -7,6 +7,11 @@
 # - what is the input data and type
 # - what is the return value and type
 
+"""
+The function returns firstly, the number of uppercase characters, then secondly the amount of lowercase characters
+The input data is the parameter being entered into the function of type string
+The return value is two variables specified earlier
+"""
 
 # function implementation
 
@@ -34,5 +39,10 @@ print(mystery_func("ABC"))
 # Uncomment the lines of code one by one and run the program
 # to see if you are right?
 
-# print(mystery_func("X"))
-# print(mystery_func("[2, 3]"))
+"""
+mystery func X will output 1,0? 1,0 
+mystery func X will output an error? 0,0
+"""
+
+print(mystery_func("X"))
+print(mystery_func("[2, 3]"))
