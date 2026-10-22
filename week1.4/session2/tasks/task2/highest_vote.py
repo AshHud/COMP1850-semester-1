@@ -30,13 +30,15 @@ def most_frequent_string(votes):
     for item in votes_corrected:
         number_of_appearences = 0
         for i in votes:
-            if votes[i] == votes_corrected[item]:
+            if i == item:
                 number_of_appearences = number_of_appearences + 1
                 if number_of_appearences > highest_number:
                     highest_number = number_of_appearences
-                    string_name = votes_corrected[item]
+                    string_name = item
 
-    
+    if votes == []:
+        string_name = None
+        highest_number = None
 
     return string_name, highest_number
 

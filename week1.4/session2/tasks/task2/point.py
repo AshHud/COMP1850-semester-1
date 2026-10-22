@@ -10,12 +10,18 @@ import math
 
 def midpoint(p1,p2):
     # complete your code here to return a point tuple
-    mid_point = 0
+    x_mid = (p2[0] + p1[0]) / 2
+    y_mid = (p2[1] + p1[1]) / 2
+    print(x_mid)
+    print(y_mid)
+    mid_point = (x_mid, y_mid)
     return mid_point
 
 def length(p1,p2):
     # complete your code here to return a value
-    distance = 0
+    x_part = ((p2[0] - p1[0]) ** 2)
+    y_part = ((p2[1] - p1[1]) ** 2)
+    distance = math.sqrt(x_part + y_part)
     return distance
     
 
