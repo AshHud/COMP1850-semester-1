@@ -21,6 +21,24 @@ def most_frequent_string(votes):
     # Hint 1: You can complete this task with for loops or comprehensions 
     # Hint 2: Think about the properties of the various collection-types
 
+    votes_set = set(votes)
+    votes_corrected = list(votes_set)
+
+    string_name = ""
+    highest_number = 0
+
+    for item in votes_corrected:
+        number_of_appearences = 0
+        for i in votes:
+            if votes[i] == votes_corrected[item]:
+                number_of_appearences = number_of_appearences + 1
+                if number_of_appearences > highest_number:
+                    highest_number = number_of_appearences
+                    string_name = votes_corrected[item]
+
+    
+
+    return string_name, highest_number
 
 fruit = ['date', 'apple', 'cherry', 'date', 'apple', 'apple', 'elderberry',
          'date', 'elderberry', 'elderberry', 'date', 'banana']
