@@ -17,11 +17,21 @@ def countdown(n):
     # Complete your code here
     # base case
 
+    if n == 0:
+        print("0")
+        return None
+    else:
+        print (n)
     # recursive case
+    
+    return  countdown(n-1)
+
+
 
 
 # check if correct output is produced
 countdown(30)    # 30 ... 0 (Note: each number is printed in a separate line)
+print("----------")
 countdown(5)     # 5 ... 0  (Note: each number in printed in a separate line)
 
 
