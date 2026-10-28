@@ -47,8 +47,8 @@ class Rectangle:
     # Implement methods is_square(), area() & perimeter() here
     # (See README.md for details of what they should do)
 
-myrectangle = Rectangle(3, 5)
+#myrectangle = Rectangle(3, 5)
 
-print(myrectangle.is_square())
-print(myrectangle.area())
-print(myrectangle.perimeter())
+#print(myrectangle.is_square())
+#print(myrectangle.area())
+#print(myrectangle.perimeter())
