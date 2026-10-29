@@ -5,3 +5,6 @@
 
 # Your program should display dataset size, mean and median,
 # followed by the individual values (using a for loop)
+
+import data
+

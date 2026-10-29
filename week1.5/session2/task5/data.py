@@ -8,7 +8,6 @@ class Dataset:
     def __init__(self, filename=None):
         """
         Creates a Dataset containing data from the specified file.
-
         If no file is specified, an empty Dataset is created.
         """
         self.data = []
@@ -18,9 +17,10 @@ class Dataset:
     def load_data(self, filename):
         """
         Loads data from the specified file into this Dataset.
-
         Any existing data will be deleted.
         """
+
+        
 
     def __len__(self):
         """
