@@ -8,3 +8,4 @@
 
 import data
 
+print(data.Dataset("testfile.txt"))
