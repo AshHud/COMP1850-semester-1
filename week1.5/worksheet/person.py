@@ -11,7 +11,9 @@ class Person:
     # birth fields (see README.md for further details)
 
     def __init__(self, name, birth):
-
+        """
+        Constructor method, creates a person object
+        """
         if not isinstance(name, str):
             raise TypeError("name is not a string")
         if name == "":
@@ -36,7 +38,7 @@ class Person:
         for i in range(0, len(new_name)):
             newinitials = newinitials + new_name[i][0]
 
-        return newinitials
+        return newinitials.upper()
 
     def is_birthday(self):
         """
@@ -50,7 +52,7 @@ class Person:
         else:
             return False
 
-#myPerson = Person("Josephine Ofelia Montgomery", date(1973, 10, 28))
+myPerson = Person("josephine ofelia montgomery", date(1973, 10, 28))
 
-#print(myPerson.initials())
-#print(myPerson.is_birthday())
+print(myPerson.initials())
+print(myPerson.is_birthday())
