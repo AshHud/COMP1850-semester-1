@@ -6,6 +6,14 @@
 # Your program should display dataset size, mean and median,
 # followed by the individual values (using a for loop)
 
-import data
+from data import Dataset
 
-print(data.Dataset("testfile.txt"))
+user_file = input("Enter filename + extension: ")
+
+myDataset = Dataset(user_file)
+
+print(myDataset)
+print(len(myDataset))
+print(myDataset[3])
+print(myDataset.mean())
+print(myDataset.median())
