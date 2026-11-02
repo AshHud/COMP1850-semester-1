@@ -12,6 +12,7 @@ class QuakeDatasetError(Exception):
     """
 
 
+
 class QuakeDataset:
     """
     An earthquake dataset obtained from a USGS data feed.
@@ -41,6 +42,19 @@ class QuakeDataset:
         # dictionaries. You will need to extract the required values from
         # each dictionary and convert them into the required types before
         # creating a Quake object and storing it in the list.
+
+        self.data.clear()
+        dict_data = self.feed.reader()
+        for info in dict_data:
+            dict_values = info.values()
+            wanted_values = [item for item in dict_values[0:4]]
+            wanted_values[0] = wanted_values[0].fromisoformat()
+            for item in wanted_values[1:4]:
+                wanted_values[item] = float(wanted_values[item])
+
+            self.data.append(Quake(wanted_values[0], wanted_values[1], wanted_values[2], wanted_values[3], wanted_values[4]))
+
+
 
     def __len__(self):
         """
