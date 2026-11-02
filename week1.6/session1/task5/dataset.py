@@ -44,17 +44,15 @@ class QuakeDataset:
         # creating a Quake object and storing it in the list.
 
         self.data.clear()
-        dict_data = self.feed.reader()
-        for info in dict_data:
-            dict_values = info.values()
-            wanted_values = [item for item in dict_values[0:4]]
-            wanted_values[0] = wanted_values[0].fromisoformat()
-            for item in wanted_values[1:4]:
-                wanted_values[item] = float(wanted_values[item])
+        for info in self.feed.reader():
 
-            self.data.append(Quake(wanted_values[0], wanted_values[1], wanted_values[2], wanted_values[3], wanted_values[4]))
+            dat_time = datetime.fromisoformat(info.get("time"))
+            lat = float(info.get("latitude"))
+            lon = float(info.get("longitude"))
+            dep = float(info.get("depth"))
+            mag = float(info.get("mag"))
 
-
+            self.data.append(Quake(dat_time, lat, lon, dep, mag))
 
     def __len__(self):
         """
@@ -62,12 +60,29 @@ class QuakeDataset:
         """
         # Write code here that returns the number of quakes downloaded
 
+        return len(self.data)
+
     def __str__(self):
         """
         Returns information on this dataset as a string.
         """
         # Write code here to create and return a string representation
         # (Include number of quakes and details of the feed that was used)
+
+        strongest = self.strongest_quake()
+        strongest_datetime = strongest.when
+
+        response = (
+            f"{len(self.data)} quakes, from {self.feed}\n"
+            f"Mean depth = {round(self.mean_depth(), 2)}km\n"
+            f"Mean magnitude = {round(self.mean_magnitude(), 1)}\n\n"
+            f"Strongest quake occured at {strongest_datetime.time().replace(microsecond=0)} on {strongest_datetime.date()}\n"
+            f"at {round(strongest.longitude, 1)}° longitude, {round(strongest.latitude, 1)}° latitude\n"
+            f"The depth was {round(strongest.depth, 2)}km\n"
+            f"The magnitude was {round(strongest.magnitude, 1)}"
+        )
+
+        return response
 
     def mean_depth(self):
         """
@@ -85,6 +100,12 @@ class QuakeDataset:
         """
         # Write code here that computes the mean magnitude of all the
         # quakes currently in the dataset
+
+        if len(self.data) == 0:
+            raise QuakeDatasetError("dataset is empty")
+
+        total = sum(quake.magnitude for quake in self.data)
+        return total / len(self.data)
 
     def shallowest_quake(self):
         """
@@ -105,3 +126,12 @@ class QuakeDataset:
         """
         # Write code here that finds and returns the strongest quake
         # (i.e., the one with the largest magnitude)
+
+        if len(self.data) == 0:
+            raise QuakeDatasetError("dataset is empty")
+
+        strongest = self.data[0]
+        for quake in self.data[1:]:
+            if quake.magnitude > strongest.magnitude:
+                strongest = quake
+        return strongest
