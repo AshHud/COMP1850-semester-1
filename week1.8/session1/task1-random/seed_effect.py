@@ -2,7 +2,7 @@
 
 import random
 
-random.seed(10)
+random.seed(3)  #selecting the seed used to simulate the pseudo-randomness
 
 num1 = random.randint(1, 100)
 num2 = random.randint(1, 100)
